@@ -17,13 +17,11 @@
         | where_exp:"item", "item.nav_exclude != true"
         | size %}
   {% if pages_top_size > 0 %}
+    <!-- TOC here to generate current page -->
+    {% include toc.html html=content sanitize=true class="nav-list" item_class="nav-list-item" anchor_class="nav-list-link" h_min=1 h_max=2 %}
+    <!-- TOC end -->
     {% include components/nav/pages.html pages=site.html_pages all=include.all %}
   {% endif %}
-
-  <!-- Add Toc here to generate for current page -->
-  <ul class="nav-list">
-    {% include toc.html html=content sanitize=true class="nav-list" item_class="nav-list-item" anchor_class="nav-list-link" h_min=1 h_max=2 %}
-  </ul>
 
   {%- if site.nav_external_links -%}
     <ul class="nav-list">
